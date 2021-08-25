@@ -8,18 +8,20 @@
 int main(void)
 {
 	int monthsRemaining = 0;
-	int debtRemaining = 1;
+	int debtRemaining = 1000;
 	double interest = kCostOfItem * kMonthlyInterest;
 	double totalInterest = 0.0;
 
+	
 	while (debtRemaining > 0)
 	{
 		totalInterest = totalInterest + interest;
-		debtRemaining = 50 - totalInterest;
+		debtRemaining = kMonthlyPayment - kMonthlyInterest;
 		debtRemaining = kCostOfItem - debtRemaining;
 		monthsRemaining++;
 	}
 	printf("The months remaining on the current payment plan is: %d", monthsRemaining);
+	printf("The total interest on the current payment plan is: %f", totalInterest);
 
 	return 0;
 }
